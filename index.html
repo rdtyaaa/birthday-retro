@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Birthday Countdown</title>
+    <link rel="stylesheet" href="assets/css/countdown.css" />
+    <script src="https://cdn.jsdelivr.net/npm/confetti-js@0.0.18/dist/index.min.js"></script>
+  </head>
+  <body>
+    <div class="countdown-container">
+      <h1>Countdown to Birthday</h1>
+      <div class="countdown">
+        <div class="time-box">
+          <span id="days">00</span>
+          <p>Days</p>
+        </div>
+        <div class="time-box">
+          <span id="hours">00</span>
+          <p>Hours</p>
+        </div>
+        <div class="time-box">
+          <span id="minutes">00</span>
+          <p>Minutes</p>
+        </div>
+        <div class="time-box">
+          <span id="seconds">00</span>
+          <p>Seconds</p>
+        </div>
+      </div>
+      <div id="lyrics-container" style="display: none">
+        <pre id="lyrics"></pre>
+      </div>
+      <button id="startButton">Start</button>
+    </div>
+
+    <canvas id="my-canvas"></canvas>
+
+    <script src="assets/js/countdown.js"></script>
+  </body>
+</html>

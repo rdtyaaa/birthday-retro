@@ -1,0 +1,254 @@
+@import url(https://db.onlinewebfonts.com/c/4c19fc875e7ba1e6831129de3ab5ac0b?family=Retro+Gaming);
+
+body {
+  font-family: "Retro Gaming", sans-serif;
+  background-color: #1a1a2e; /* Dark background */
+  color: #ffffff; /* White text */
+  text-align: center;
+  padding: 0px;
+  margin: -20px;
+  overflow: hidden;
+  transition: background-color 2s ease, background-image 2s ease; /* Apply transition for background changes */
+}
+
+.character-selection {
+  margin: 150px auto;
+  color: #f5df4d; /* Yellow */
+  text-shadow: 4px 4px 0px #5a3e36, /* Dark shadow */ -2px -2px 0px #e8582c; /* Highlight */
+}
+
+.characters {
+  display: flex;
+  justify-content: center;
+}
+
+.character {
+  cursor: pointer;
+  text-align: center;
+}
+
+.character img {
+  object-fit: cover;
+  width: 80%;
+  height: 80%;
+  transition: transform 0.3s ease;
+  background: #e8582c; /* Bright red */
+  padding: 20px;
+  box-shadow: 4px 4px 0px #5a3e36, -2px -2px 0px #f5df4d; /* Retro shadow */
+  transition: all 0.2s ease;
+}
+
+.character p {
+  font-size: 1rem;
+  color: #f5df4d; /* Yellow */
+  text-shadow: 4px 4px 0px #5a3e36, /* Dark shadow */ -2px -2px 0px #e8582c; /* Highlight */
+}
+
+.character img:hover {
+  transform: scale(1.1);
+}
+
+/* Dialog Section */
+.dialog-box {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  min-height: 136px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 20px;
+  display: flex;
+  align-items: flex-start;
+  z-index: 1000;
+  opacity: 1;
+  transition: opacity 1s ease-in-out; /* Smooth fade-in for dialog box */
+}
+
+.dialog-container {
+  width: 100%;
+  text-align: center;
+}
+
+.character-image {
+  position: absolute;
+  height: 400px;
+  bottom: 175px;
+  max-width: 50%;
+  z-index: 1100;
+}
+
+.character-image.left {
+  left: -200px;
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+.character-image.right {
+  right: -200px;
+}
+
+.dialog-text {
+  margin: 10px;
+}
+
+/* Styling untuk tombol dalam dialog */
+.dialog-buttons button {
+  background: #555; /* Warna latar belakang gelap */
+  color: white; /* Warna teks putih */
+  border: none; /* Menghilangkan border default */
+  padding: 10px 20px; /* Padding untuk tombol */
+  cursor: pointer; /* Kursor tangan saat hover */
+  font-family: "Retro Gaming", cursive; /* Font retro 16-bit */
+  font-size: 1rem; /* Ukuran font standar */
+  text-transform: uppercase; /* Mengubah teks menjadi kapital */
+  letter-spacing: 1px; /* Memberikan sedikit spasi antara huruf */
+  transition: background-color 0.3s ease; /* Efek transisi pada background */
+}
+
+/* Efek hover pada tombol */
+.dialog-buttons button:hover {
+  background: #777; /* Mengubah warna latar belakang saat hover */
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.4); /* Menambahkan efek glow putih saat hover */
+}
+
+.warning-dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.warning-content {
+  background-color: #444;
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 80%;
+  max-width: 400px;
+}
+
+.warning-content p {
+  margin-bottom: 20px;
+}
+
+.warning-content button {
+  background: #555;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.warning-content button:hover {
+  background: #777;
+}
+
+#lyrics-container {
+  position: absolute;
+  bottom: 10%;
+  width: 100%;
+  overflow: hidden;
+  height: 200px;
+  font-size: 20px;
+  color: white;
+}
+
+#lyrics-text p {
+  opacity: 0;
+  animation: wave 3s ease-out infinite;
+  white-space: pre-wrap;
+  background: rgba(0, 0, 0, 0.8);
+  display: inline-block; /* Allow text to adjust width based on content */
+  padding: 5px;
+  color: #f5df4d; /* Yellow */
+  text-shadow: 4px 4px 0px #5a3e36, /* Dark shadow */ -2px -2px 0px #e8582c; /* Highlight */
+}
+
+@keyframes wave {
+  0% {
+    transform: translateX(-20px);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-20px); /* Move left */
+    opacity: 1;
+  }
+}
+
+/* Styling untuk input password */
+#password-input {
+  width: 25%;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  margin-top: 10px;
+  transition: all 0.3s ease-in-out;
+  background-color: #1e1e1e; /* Warna latar belakang gelap untuk kesan retro */
+  color: #ffffff; /* Teks putih */
+  font-family: "Retro Gaming", cursive; /* Font retro 16-bit */
+}
+
+/* Efek ketika input berada dalam fokus */
+#password-input:focus {
+  border-color: #4caf50; /* Border hijau saat fokus */
+  outline: none; /* Menghilangkan outline default */
+  box-shadow: 0 0 10px rgba(0, 128, 0, 0.3); /* Efek glow hijau */
+  background-color: #333; /* Warna latar belakang sedikit lebih terang saat fokus */
+  color: #f5df4d; /* Teks kuning cerah */
+}
+
+/* The bg-active class (Room background) */
+body.bg-active {
+  background: url("/assets/img/room.png") no-repeat center center fixed;
+  height: 100vh;
+  width: 100%;
+  transition: background 2s ease; /* Smooth transition when background changes */
+}
+
+/* The dialog-active class (Dark background) */
+body.dialog-active {
+  background-color: #1a1a2e; /* Dark background */
+  height: 100vh;
+  width: 100%;
+  transition: background-color 2s ease; /* Smooth transition */
+}
+
+#bg-video {
+  display: none; /* Default: hide the video */
+  position: absolute;
+  object-fit: cover; /* Pastikan video menutupi seluruh layar */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1; /* Behind other elements */
+  opacity: 0.5;
+}
+
+#particles-js {
+  position: absolute;
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Behind all other content */
+}
+
+.hidden {
+  display: none;
+}
