@@ -1,0 +1,455 @@
+@import url(https://db.onlinewebfonts.com/c/4c19fc875e7ba1e6831129de3ab5ac0b?family=Retro+Gaming);
+
+body {
+  font-family: "Retro Gaming", sans-serif;
+  background-color: #1a1a2e; /* Dark background */
+  color: #ffffff; /* White text */
+  text-align: center;
+  position: relative;
+  padding: 0px;
+  margin: -20px;
+  overflow: hidden;
+  transition: background-color 2s ease, background-image 2s ease; /* Apply transition for background changes */
+}
+
+/* Pixelated borders and retro styling */
+.pixel-border {
+  border: 4px solid;
+  border-image: repeating-linear-gradient(
+      90deg,
+      #8b4513 0px,
+      #8b4513 4px,
+      #d2691e 4px,
+      #d2691e 8px,
+      #f4a460 8px,
+      #f4a460 12px,
+      #8b4513 12px,
+      #8b4513 16px
+    )
+    4;
+  box-shadow: 0 0 0 2px #8b4513, 4px 4px 0 2px #654321,
+    8px 8px 0 0px rgba(0, 0, 0, 0.3);
+}
+
+/* Character Selection Styling */
+.character-selection {
+  margin: 5% auto;
+  padding: 20px;
+  animation: fadeInBounce 1.5s ease-out;
+}
+
+.character-selection h1 {
+  font-size: 2.5rem;
+  color: #ffeb3b;
+  text-shadow: 3px 3px 0px #8b4513, 6px 6px 0px #654321,
+    9px 9px 0px rgba(0, 0, 0, 0.5);
+  margin-bottom: 30px;
+  animation: titleGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+  0% {
+    text-shadow: 3px 3px 0px #8b4513, 6px 6px 0px #654321,
+      9px 9px 0px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 235, 59, 0.3);
+  }
+  100% {
+    text-shadow: 3px 3px 0px #8b4513, 6px 6px 0px #654321,
+      9px 9px 0px rgba(0, 0, 0, 0.5), 0 0 40px rgba(255, 235, 59, 0.6);
+  }
+}
+
+.characters {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+}
+
+.character {
+  cursor: pointer;
+  text-align: center;
+  position: relative;
+  animation: characterFloat 3s ease-in-out infinite;
+}
+
+.character:nth-child(2) {
+  animation-delay: -1.5s;
+}
+
+@keyframes characterFloat {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.character img {
+  width: 750px;
+  height: 500px;
+  object-fit: cover;
+  background: linear-gradient(135deg, #ff6b35, #f7931e);
+  padding: 0px;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  image-rendering: pixelated;
+}
+
+.character img:before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  background: repeating-linear-gradient(
+    45deg,
+    #8b4513,
+    #8b4513 4px,
+    #d2691e 4px,
+    #d2691e 8px
+  );
+  z-index: -1;
+}
+
+.character p {
+  font-size: 1.8rem;
+  color: #ffeb3b;
+  text-shadow: 2px 2px 0px #8b4513, 4px 4px 0px #654321;
+  margin-top: 15px;
+  transition: all 0.3s ease;
+}
+
+.character:hover img {
+  transform: scale(1.1) rotate(2deg);
+  box-shadow: 0 0 30px rgba(255, 107, 53, 0.8),
+    inset 0 0 20px rgba(255, 255, 255, 0.2);
+  animation: bounce 0.6s ease;
+}
+
+.character:hover p {
+  color: #fff;
+  text-shadow: 2px 2px 0px #ff6b35, 4px 4px 0px #8b4513,
+    0 0 20px rgba(255, 235, 59, 0.8);
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  60%,
+  100% {
+    transform: scale(1.1) translateY(0);
+  }
+  40% {
+    transform: scale(1.1) translateY(-15px);
+  }
+  80% {
+    transform: scale(1.1) translateY(-8px);
+  }
+}
+
+@keyframes fadeInBounce {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.8);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(10px) scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Dialog Section */
+.dialog-box {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  min-height: 136px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 20px;
+  display: flex;
+  align-items: flex-start;
+  z-index: 1000;
+  opacity: 1;
+  transition: opacity 1s ease-in-out; /* Smooth fade-in for dialog box */
+}
+
+.dialog-container {
+  width: 100%;
+  text-align: center;
+}
+
+.character-image {
+  position: absolute;
+  height: 400px;
+  bottom: 175px;
+  max-width: 50%;
+  z-index: 1100;
+}
+
+.character-image.left {
+  left: -100px;
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+.character-image.right {
+  right: -100px;
+}
+
+.dialog-text {
+  margin: 10px;
+}
+
+/* Styling untuk tombol dalam dialog */
+.dialog-buttons button {
+  background: #555; /* Warna latar belakang gelap */
+  color: white; /* Warna teks putih */
+  border: none; /* Menghilangkan border default */
+  padding: 10px 20px; /* Padding untuk tombol */
+  cursor: pointer; /* Kursor tangan saat hover */
+  font-family: "Retro Gaming", cursive; /* Font retro 16-bit */
+  font-size: 1rem; /* Ukuran font standar */
+  text-transform: uppercase; /* Mengubah teks menjadi kapital */
+  letter-spacing: 1px; /* Memberikan sedikit spasi antara huruf */
+  transition: background-color 0.3s ease; /* Efek transisi pada background */
+}
+
+/* Efek hover pada tombol */
+.dialog-buttons button:hover {
+  background: #777; /* Mengubah warna latar belakang saat hover */
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.4); /* Menambahkan efek glow putih saat hover */
+}
+
+.warning-dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.warning-content {
+  background-color: #444;
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 80%;
+  max-width: 400px;
+}
+
+.warning-content p {
+  margin-bottom: 20px;
+}
+
+.warning-content button {
+  background: #555;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.warning-content button:hover {
+  background: #777;
+}
+
+#lyrics-container {
+  position: absolute;
+  bottom: 10%;
+  width: 100%;
+  overflow: hidden;
+  height: 200px;
+  font-size: 20px;
+  color: white;
+  z-index: 5;
+}
+
+#lyrics-text p {
+  opacity: 0;
+  animation: wave 3s ease-out infinite;
+  white-space: pre-wrap;
+  background: rgba(0, 0, 0, 0.8);
+  display: inline-block; /* Allow text to adjust width based on content */
+  padding: 5px;
+  color: #f5df4d; /* Yellow */
+  text-shadow: 4px 4px 0px #5a3e36, /* Dark shadow */ -2px -2px 0px #e8582c; /* Highlight */
+}
+
+@keyframes wave {
+  0% {
+    transform: translateX(-20px);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-20px); /* Move left */
+    opacity: 1;
+  }
+}
+
+/* Styling untuk input password */
+#password-input {
+  width: 25%;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  margin-top: 10px;
+  transition: all 0.3s ease-in-out;
+  background-color: #1e1e1e; /* Warna latar belakang gelap untuk kesan retro */
+  color: #ffffff; /* Teks putih */
+  font-family: "Retro Gaming", cursive; /* Font retro 16-bit */
+}
+
+/* Efek ketika input berada dalam fokus */
+#password-input:focus {
+  border-color: #4caf50; /* Border hijau saat fokus */
+  outline: none; /* Menghilangkan outline default */
+  box-shadow: 0 0 10px rgba(0, 128, 0, 0.3); /* Efek glow hijau */
+  background-color: #333; /* Warna latar belakang sedikit lebih terang saat fokus */
+  color: #f5df4d; /* Teks kuning cerah */
+}
+
+/* The bg-active class (Room background) */
+body.bg-room {
+  background: url("assets/img/walk.png") no-repeat;
+  background-size: cover; /* Mengatur background agar menutupi seluruh layar */
+  padding-top: 15%; /* Atur sesuai kebutuhan */
+  height: 100vh;
+  transition: background 2s ease; /* Smooth transition when background changes */
+}
+
+body.bg-sunset {
+  background: url("assets/img/bg-sunset.png") no-repeat center center fixed;
+  background-size: cover; /* Mengatur background agar menutupi seluruh layar */
+  width: 100%;
+  height: 100vh; /* Memastikan tinggi body 100% dari viewport */
+  margin: 0; /* Menghapus margin default body */
+}
+
+body.bg-rascal {
+  background: url("assets/img/character/Rascal/rascaltalk.png") no-repeat
+    center center;
+  background-size: cover; /* Mengatur background agar menutupi seluruh layar */
+  padding-top: 12.5%; /* Atur sesuai kebutuhan */
+  height: 100vh; /* Memastikan tinggi body 100% dari viewport */
+  transition: background 2s ease; /* Smooth transition */
+}
+
+body.bg-octavia {
+  background: url("assets/img/character/Octavia/octaviatalk.png") no-repeat
+    center center;
+  background-size: cover; /* Mengatur background agar menutupi seluruh layar */
+  padding-top: 12.5%; /* Atur sesuai kebutuhan */
+  height: 100vh; /* Memastikan tinggi body 100% dari viewport */
+  transition: background 2s ease; /* Smooth transition */
+}
+
+/* The dialog-active class (Dark background) */
+body.dialog-active {
+  background-color: #1a1a2e; /* Dark background */
+  height: 100vh;
+  width: 100%;
+  transition: background-color 2s ease; /* Smooth transition */
+}
+
+#bg-video {
+  display: none; /* default: hidden */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  opacity: 0.6; /* atau sesuai kebutuhan */
+  pointer-events: none; /* Biar gak ganggu klik */
+}
+
+#particles-js {
+  position: absolute;
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Behind all other content */
+}
+
+.hidden {
+  display: none;
+}
+
+/* Additional retro effects */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Retro scanlines effect */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.1) 2px,
+    rgba(0, 0, 0, 0.1) 4px
+  );
+  pointer-events: none;
+  z-index: 1000;
+  animation: scanlines 0.1s linear infinite;
+}
+
+@keyframes scanlines {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-4px);
+  }
+}
+
+/* Retro screen glow */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 255, 255, 0.02) 0%,
+    rgba(255, 255, 255, 0.01) 50%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+  pointer-events: none;
+  z-index: 999;
+}

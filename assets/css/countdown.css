@@ -1,0 +1,184 @@
+@import url(https://db.onlinewebfonts.com/c/4c19fc875e7ba1e6831129de3ab5ac0b?family=Retro+Gaming);
+
+body {
+  font-family: "Playfair Display", sans-serif;
+  background-color: #030303ff; /* Dark background */
+  color: #ffffff; /* White text */
+  display: flex;
+  flex-direction: column; /* Arrange items vertically */
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+  min-height: 100vh; /* Set height to full viewport */
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Container untuk countdown */
+.countdown-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #030303ff; /* Dark background */
+  font-family: "Playfair Display", cursive; /* Retro font */
+  text-align: center;
+}
+
+/* Judul countdown */
+h1 {
+  font-size: 3rem;
+  color: white; /* Yellow color */
+  /* text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); */
+  margin-bottom: 30px;
+}
+
+/* Tampilan countdown */
+.countdown {
+  display: flex;
+  gap: 20px;
+}
+
+/* Kotak waktu */
+.time-box {
+  background: ; /* Bright red */
+  padding: 20px;
+  /* box-shadow: 4px 4px 0px #5a3e36, -2px -2px 0px #f5df4d; Retro shadow */
+  text-align: center;
+  width: 120px;
+  transition: all 0.2s ease;
+}
+
+/* Hover effect pada kotak waktu */
+.time-box:hover {
+  transform: scale(1.1); /* Membesar sedikit saat di-hover */
+}
+
+/* Waktu dalam kotak */
+.time-box span {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ffffff;
+  display: block;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+/* Teks label di bawah waktu */
+.time-box p {
+  font-size: 1rem;
+  margin: 0;
+  color: #f4f4f4; /* Yellow color */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.birthday-message {
+  font-size: 3rem;
+  color: #f4f4f4; /* Yellow */
+  /* text-shadow: 4px 4px 0px #5a3e36, Dark shadow -2px -2px 0px #e8582c; Highlight */
+  margin-bottom: 20px;
+  margin-right: 60px;
+  animation: zoomIn 1s ease-in-out;
+}
+
+/* Retro-style play button */
+.play-button {
+  font-size: 1.5rem;
+  padding: 15px 30px;
+  color: black; /* White text */
+  /* background-color: white; Bright red */
+  /* border: 4px solid #f5df4d; Yellow border */
+  /* box-shadow: 4px 4px 0px #5a3e36, Dark shadow -2px -2px 0px #f5df4d; /* Highlight */
+  box-shadow: none;
+  font-family: "Playfair Display", cursive; /* Retro font */
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.play-button:hover {
+  transform: scale(1.1); /* Button grows slightly */
+}
+
+.play-button:active {
+  transform: scale(0.95); /* Button shrinks on click */
+  box-shadow: none;
+}
+
+/* Animation for zoom-in */
+@keyframes zoomIn {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Prevent interaction with the canvas */
+}
+
+/* Style untuk container */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  background-color: #030303ff;
+  flex-grow: 1;
+}
+
+/* Styling untuk tombol Start */
+#startButton {
+  position: absolute;
+  bottom: 10%;
+  font-size: 1.5rem;
+  padding: 15px 30px;
+  color: black; /* White text */
+  /* background-color: ; Bright red */
+  /* border: 4px solid #f5df4d; Yellow border */
+  /* box-shadow: 4px 4px 0px #5a3e36, Dark shadow -2px -2px 0px #f5df4d; Highlight */
+  /* text-transform: uppercase; */
+  font-family: "Playfair Display", cursive; /* Retro font */
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+#startButton:hover {
+  transform: scale(1.1); /* Button grows slightly */
+}
+
+#startButton:active {
+  transform: scale(0.95); /* Button shrinks on click */
+  box-shadow: none;
+}
+
+/* Gaya untuk lirik */
+#lyrics-container {
+  position: absolute;
+  bottom: -5%;
+  width: 100%;
+  overflow: hidden;
+  height: 200px;
+  font-size: 20px;
+  color: white;
+}
+
+/* Gaya untuk lirik teks */
+#lyrics {
+  opacity: 1;
+  font-family: "Playfair Display", cursive; /* Retro font */
+  white-space: pre-wrap;
+  background: rgba(0, 0, 0, 0.8);
+  display: inline-block; /* Allow text to adjust width based on content */
+  padding: 5px;
+}

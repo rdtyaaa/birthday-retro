@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <base href="/birthday-retro/" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Memory Experience</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Playfair Display", sans-serif;
+        background: #000;
+        color: #fff;
+        overflow: hidden;
+      }
+
+      .screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 1s ease, visibility 1s ease;
+      }
+
+      .screen.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      /* Start Screen */
+      #startScreen h1 {
+        font-size: 3rem;
+        font-weight: 300;
+        letter-spacing: 2px;
+        margin-bottom: 2rem;
+      }
+
+      .start-btn {
+        padding: 15px 50px;
+        font-size: 1.2rem;
+        font-family: "Playfair Display", sans-serif;
+        background: transparent;
+        color: #fff;
+        border: 2px solid #fff;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        letter-spacing: 1px;
+      }
+
+      .start-btn:hover {
+        background: #fff;
+        color: #000;
+      }
+
+      /* Loading Screen */
+      #loadingScreen {
+        background: #000;
+      }
+
+      .loading-text {
+        font-size: 1.5rem;
+        font-weight: 300;
+        letter-spacing: 1px;
+        opacity: 0;
+        animation: fadeInOut 2s ease-in-out forwards;
+      }
+
+      @keyframes fadeInOut {
+        0% {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        30% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        70% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+      }
+
+      /* Video Screen */
+      #videoScreen {
+        background: #000;
+        padding: 0;
+      }
+
+      #videoPlayer {
+        width: 100%;
+        height: 100vh;
+        object-fit: contain;
+        cursor: pointer;
+      }
+
+      #videoPlayer::-webkit-media-controls {
+        display: none !important;
+      }
+
+      #videoPlayer::-webkit-media-controls-enclosure {
+        display: none !important;
+      }
+
+      /* End Screen */
+      #endScreen {
+        background: #000;
+      }
+
+      #endScreen h2 {
+        font-size: 2.5rem;
+        font-weight: 300;
+        letter-spacing: 2px;
+        margin-bottom: 1rem;
+      }
+
+      #endScreen h3 {
+        font-size: 3rem;
+        font-weight: 600;
+        letter-spacing: 3px;
+      }
+
+      /* Fade Overlay */
+      .fade-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: #000;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 1s ease;
+        z-index: 1000;
+      }
+
+      .fade-overlay.active {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Fade Overlay -->
+    <div class="fade-overlay" id="fadeOverlay"></div>
+
+    <!-- Start Screen -->
+    <div class="screen active" id="startScreen">
+      <h1>Ready to Start?</h1>
+      <button class="start-btn" onclick="startExperience()">Start</button>
+    </div>
+
+    <!-- Loading Screen -->
+    <div class="screen" id="loadingScreen">
+      <div class="loading-text" id="loadingText"></div>
+    </div>
+
+    <!-- Video Screen -->
+    <div class="screen" id="videoScreen">
+      <video id="videoPlayer">
+        <source src="assets/video/everythinguare.mp4" type="video/mp4" />
+        Browser Anda tidak mendukung video.
+      </video>
+    </div>
+
+    <!-- End Screen -->
+    <div class="screen" id="endScreen">
+      <h2>Terima Kasih,</h2>
+      <h3>Moonlight</h3>
+    </div>
+
+    <script>
+      const loadingTexts = [
+        "Gaining memory...",
+        "Enhancing the memory...",
+        "Processing data...",
+        "Almost ready...",
+      ];
+
+      let currentScreen = "start";
+
+      function fadeTransition(callback) {
+        const overlay = document.getElementById("fadeOverlay");
+        overlay.classList.add("active");
+        setTimeout(() => {
+          callback();
+          setTimeout(() => {
+            overlay.classList.remove("active");
+          }, 100);
+        }, 1000);
+      }
+
+      function showScreen(screenId) {
+        document.querySelectorAll(".screen").forEach((screen) => {
+          screen.classList.remove("active");
+        });
+        document.getElementById(screenId).classList.add("active");
+        currentScreen = screenId;
+      }
+
+      function startExperience() {
+        fadeTransition(() => {
+          showScreen("loadingScreen");
+          showLoadingTexts();
+        });
+      }
+
+      function showLoadingTexts() {
+        let index = 0;
+        const loadingTextEl = document.getElementById("loadingText");
+
+        function displayNext() {
+          if (index < loadingTexts.length) {
+            loadingTextEl.textContent = loadingTexts[index];
+            loadingTextEl.style.animation = "none";
+            setTimeout(() => {
+              loadingTextEl.style.animation =
+                "fadeInOut 2s ease-in-out forwards";
+            }, 10);
+            index++;
+            setTimeout(displayNext, 2000);
+          } else {
+            setTimeout(() => {
+              fadeTransition(() => {
+                showScreen("videoScreen");
+                playVideo();
+              });
+            }, 500);
+          }
+        }
+
+        displayNext();
+      }
+
+      function playVideo() {
+        const video = document.getElementById("videoPlayer");
+        video.play();
+
+        video.onended = function () {
+          fadeTransition(() => {
+            showScreen("endScreen");
+          });
+        };
+      }
+    </script>
+    <script src="assets/js/dateChecker.js"></script>
+  </body>
+</html>

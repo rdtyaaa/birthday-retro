@@ -1,0 +1,410 @@
+@import url(https://db.onlinewebfonts.com/c/4c19fc875e7ba1e6831129de3ab5ac0b?family=Retro+Gaming);
+
+/* styles.css */
+body {
+  font-family: "Retro Gaming", cursive; /* Retro font */
+  background: radial-gradient(circle, #2b5876, #4e4376);
+  color: #fff;
+  text-align: center;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+#container {
+  width: 80%;
+}
+
+p {
+  font-size: 1.5rem;
+  opacity: 1;
+  transform: scale(0.5);
+  transition: all 0.8s ease;
+  animation-fill-mode: forwards;
+}
+
+/* Entrance Animations */
+.animate-zoom {
+  animation: zoomIn 1.5s ease forwards;
+}
+
+.animate-blur {
+  animation: blurIn 1.5s ease forwards;
+}
+
+.animate-bounce {
+  animation: bounceZoom 1.5s ease forwards;
+}
+
+.animate-rotate-zoom {
+  animation: rotateZoomIn 1.5s ease forwards;
+}
+
+/* Idle Animation */
+.idle {
+  animation: idle 2s infinite alternate ease-in-out;
+}
+
+/* Exit Animations */
+.exit-blur {
+  animation: blurOut 1.5s ease forwards;
+}
+
+.exit-fade-zoom {
+  animation: fadeZoomOut 1.5s ease forwards;
+}
+
+.exit-bounce-out {
+  animation: bounceOut 1.5s ease forwards;
+}
+
+/* New Entrance Animations */
+.animate-slide-in {
+  animation: slideIn 1.5s ease forwards;
+}
+
+.animate-flip {
+  animation: flipIn 1.5s ease forwards;
+}
+
+.animate-zoom-rotate-blur {
+  animation: zoomRotateBlurIn 1.5s ease forwards;
+}
+
+.animate-scale-swing {
+  animation: scaleSwingIn 1.5s ease forwards;
+}
+
+.animate-spin-in {
+  animation: spinIn 1.5s ease forwards;
+}
+
+.animate-drop-in {
+  animation: dropIn 1.5s ease forwards;
+}
+
+/* New Exit Animations */
+.exit-slide-out {
+  animation: slideOut 1.5s ease forwards;
+}
+
+.exit-flip-out {
+  animation: flipOut 1.5s ease forwards;
+}
+
+.exit-zoom-rotate-blur {
+  animation: zoomRotateBlurOut 1.5s ease forwards;
+}
+
+.exit-scale-shrink {
+  animation: scaleShrinkOut 1.5s ease forwards;
+}
+
+.exit-spin-out {
+  animation: spinOut 1.5s ease forwards;
+}
+
+.exit-drop-out {
+  animation: dropOut 1.5s ease forwards;
+}
+
+/* Keyframes */
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes flipIn {
+  from {
+    transform: rotateY(180deg);
+    opacity: 0;
+  }
+  to {
+    transform: rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes zoomRotateBlurIn {
+  from {
+    transform: scale(0.5) rotate(-360deg);
+    filter: blur(8px);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) rotate(0);
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleSwingIn {
+  0% {
+    transform: scale(0.5) rotate(-15deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2) rotate(15deg);
+  }
+  100% {
+    transform: scale(1) rotate(0);
+    opacity: 1;
+  }
+}
+
+@keyframes spinIn {
+  from {
+    transform: rotate(360deg) scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: rotate(0deg) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes dropIn {
+  from {
+    transform: translateY(-1000px);
+    opacity: 0;
+  }
+  60% {
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes flipOut {
+  from {
+    transform: rotateY(0deg);
+    opacity: 1;
+  }
+  to {
+    transform: rotateY(180deg);
+    opacity: 0;
+  }
+}
+
+@keyframes zoomRotateBlurOut {
+  from {
+    transform: scale(1) rotate(0deg);
+    filter: blur(0px);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0.5) rotate(360deg);
+    filter: blur(8px);
+    opacity: 0;
+  }
+}
+
+@keyframes scaleShrinkOut {
+  0% {
+    transform: scale(1.2) rotate(15deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.5) rotate(-15deg);
+    opacity: 0;
+  }
+}
+
+@keyframes spinOut {
+  from {
+    transform: rotate(0deg) scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: rotate(-360deg) scale(0.5);
+    opacity: 0;
+  }
+}
+
+@keyframes dropOut {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  60% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(1000px);
+    opacity: 0;
+  }
+}
+
+/* Keyframes */
+@keyframes zoomIn {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes bounceZoom {
+  0% {
+    transform: scale(4) translateY(-500px);
+    filter: blur(4px);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(0.7) translateY(200px);
+    filter: blur(-2px);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes rotateZoomIn {
+  from {
+    transform: rotate(-360deg) scale(4);
+    filter: blur(4px);
+    opacity: 0;
+  }
+  to {
+    transform: rotate(0deg) scale(1);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes idle {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes blurOut {
+  from {
+    transform: scale(1);
+    opacity: 1;
+    filter: blur(0px);
+  }
+  to {
+    transform: scale(4);
+    opacity: 0;
+    filter: blur(64px);
+  }
+}
+
+@keyframes blurIn {
+  from {
+    transform: scale(0);
+    opacity: 0;
+    filter: blur(8px);
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+    filter: blur(0px);
+  }
+}
+
+@keyframes fadeZoomOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+}
+
+@keyframes bounceOut {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2) translateY(-20px);
+  }
+  100% {
+    transform: scale(0.5) translateY(50px);
+    opacity: 0;
+  }
+}
+
+#particles-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.particle {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  filter: blur(4px);
+  animation: floatDown 6s infinite, spin3D 6s infinite;
+}
+
+@keyframes floatDown {
+  0% {
+    transform: translateY(-150%) scale(1);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(150%) scale(0.8);
+    opacity: 0;
+  }
+}
+
+@keyframes spin3D {
+  0% {
+    transform: rotateX(0) rotateY(0);
+  }
+  50% {
+    transform: rotateX(180deg) rotateY(360deg);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(720deg);
+  }
+}

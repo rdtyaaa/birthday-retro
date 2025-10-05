@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <base href="/birthday-retro/" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Birthday!</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body id="game-body">
+    <!-- Character Selection -->
+    <div class="character-selection" id="character-selection">
+      <h1>Select Your Character</h1>
+      <div class="characters">
+        <div class="character" onclick="selectCharacter('Rascal')">
+          <img
+            onclick="playClickSound()"
+            src="assets/img/character/Rascal/Rascal-Transparent.png"
+            alt="Rascal"
+            class="pixel-border"
+          />
+          <p>Rascal</p>
+        </div>
+        <div class="character" onclick="selectCharacter('Octavia')">
+          <img
+            onclick="playClickSound()"
+            src="assets/img/character/Octavia/Octavia-Transparent.png"
+            alt="Octavia"
+            class="pixel-border"
+          />
+          <p>Octavia</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Warning Dialog Box -->
+    <div class="warning-dialog hidden" id="warning-dialog">
+      <div class="warning-content">
+        <p>Pilih yang benar apa! Lu tuh bukan Rascal.</p>
+        <button onclick="closeWarning()">OK</button>
+      </div>
+    </div>
+
+    <!-- Dialog Section -->
+    <video id="bg-video" muted loop playsinline>
+      <source src="assets/video/20241231_201404_448.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <div id="particles-js"></div>
+    <div id="lyrics-container">
+      <div id="lyrics-text"></div>
+    </div>
+    <div class="dialog-box hidden" id="dialog-box">
+      <img
+        id="character-image"
+        class="character-image"
+        src=""
+        alt="Character"
+      />
+
+      <div class="dialog-container">
+        <div class="character-name" id="character-name"></div>
+        <div class="dialog-text" id="dialog-text"></div>
+        <div class="dialog-buttons">
+          <button
+            id="answer-button"
+            class="hidden"
+            onclick="showPasswordInput()"
+          >
+            Masukkan Jawaban
+          </button>
+          <input
+            id="password-input"
+            class="hidden"
+            type="text"
+            placeholder="Enter your answer..."
+          />
+          <button id="next-button" onclick="nextDialog()">Next</button>
+          <a href="./text.html">
+            <button id="wish-button" class="hidden">Let's Go!</button></a
+          >
+        </div>
+      </div>
+    </div>
+    <script src="assets/js/dialog.js"></script>
+    <script src="assets/js/dateChecker.js"></script>
+  </body>
+</html>
