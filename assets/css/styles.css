@@ -329,7 +329,7 @@ body {
 
 /* The bg-active class (Room background) */
 body.bg-room {
-  background: url("assets/img/walk.png") no-repeat;
+  background: url("../img/walk.png") no-repeat;
   background-size: cover; /* Mengatur background agar menutupi seluruh layar */
   padding-top: 15%; /* Atur sesuai kebutuhan */
   height: 100vh;
@@ -337,7 +337,7 @@ body.bg-room {
 }
 
 body.bg-sunset {
-  background: url("assets/img/bg-sunset.png") no-repeat center center fixed;
+  background: url("../img/bg-sunset.png") no-repeat center center fixed;
   background-size: cover; /* Mengatur background agar menutupi seluruh layar */
   width: 100%;
   height: 100vh; /* Memastikan tinggi body 100% dari viewport */
@@ -345,8 +345,8 @@ body.bg-sunset {
 }
 
 body.bg-rascal {
-  background: url("assets/img/character/Rascal/rascaltalk.png") no-repeat
-    center center;
+  background: url("../img/character/Rascal/rascaltalk.png") no-repeat center
+    center;
   background-size: cover; /* Mengatur background agar menutupi seluruh layar */
   padding-top: 12.5%; /* Atur sesuai kebutuhan */
   height: 100vh; /* Memastikan tinggi body 100% dari viewport */
@@ -354,7 +354,7 @@ body.bg-rascal {
 }
 
 body.bg-octavia {
-  background: url("assets/img/character/Octavia/octaviatalk.png") no-repeat
+  background: url("../img/character/Octavia/octaviatalk.png") no-repeat
     center center;
   background-size: cover; /* Mengatur background agar menutupi seluruh layar */
   padding-top: 12.5%; /* Atur sesuai kebutuhan */
