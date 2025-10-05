@@ -1,5 +1,5 @@
 // Tanggal akses diset di satu variabel
-const accessDate = new Date("2025-10-07"); // format YYYY-MM-DD
+const accessDate = new Date("2025-09-07"); // format YYYY-MM-DD
 
 // Cek tanggal sekarang
 const currentDate = new Date();
